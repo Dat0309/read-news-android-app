@@ -8,7 +8,7 @@
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/AppBar"
@@ -29,14 +29,6 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <androidx.appcompat.widget.Toolbar
-                            android:id="@+id/toolbar"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                            app:title="Android News"
-                            tools:ignore="PrivateResource"
-                            />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -74,12 +66,15 @@
 
         </com.google.android.material.appbar.AppBarLayout>
     </LinearLayout>
-    
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/article"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
+        android:layout_height="wrap_content"
+        android:background="#F7FFFFFF">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_category"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    </ScrollView>
 </LinearLayout>

@@ -16,4 +16,5 @@
     <color name="card6">#c9e3db</color>
     <color name="card7">#86d098</color>
     <color name="ligh_medium_gray">#E9EAEA</color>
+    <color name="black_trans">#33000000</color>
 </resources>
