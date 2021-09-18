@@ -2,5 +2,5 @@
     <string name="app_name">Đọc Báo</string>
     <string name="title">ĐỌC BÁO</string>
     <string name="description">Đọc báo mỗi ngày, tốt cho sức khỏe.</string>
-
+    <string name="all_news">Tất cả đầu báo</string>
 </resources>
