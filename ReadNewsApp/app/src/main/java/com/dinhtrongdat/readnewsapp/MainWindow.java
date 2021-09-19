@@ -18,7 +18,10 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
@@ -111,6 +114,7 @@ public class MainWindow extends AppCompatActivity implements AdapterArticle.List
         cateAdapter = new CategoryAdapter(mdata, this);
         cateAdapter.notifyDataSetChanged();
         cateRecycle.setAdapter(cateAdapter);
+        setAnimation(R.anim.layout_right_left);
     }
 
     @Override
@@ -118,11 +122,45 @@ public class MainWindow extends AppCompatActivity implements AdapterArticle.List
         String[] link;
         switch (clickedItemIndex){
             case 0:
+                mdata.clear();
+                mdata.add(new Category("Tin xem nhiều",R.drawable.xemnhieu));
+                mdata.add(new Category("Tin nổi bật",R.drawable.home));
+                mdata.add(new Category("Kinh doanh",R.drawable.kinhdanh));
+                mdata.add(new Category("Thời sự",R.drawable.thoisu));
+                mdata.add(new Category("Giải trí",R.drawable.giaitri));
+                mdata.add(new Category("Pháp luật",R.drawable.phapluat));
+                mdata.add(new Category("Sức khỏe",R.drawable.suckhoe));
+                mdata.add(new Category("Khoa học",R.drawable.khoahoc));
+                mdata.add(new Category("Du lịch",R.drawable.dulich));
+                mdata.add(new Category("Thế giới",R.drawable.thegioi));
+                mdata.add(new Category("Startup",R.drawable.startup));
+                mdata.add(new Category("Giáo dục",R.drawable.giaoduc));
+                mdata.add(new Category("Đời sống",R.drawable.doisong));
+                mdata.add(new Category("Số hóa",R.drawable.sohoa));
+                cateAdapter.notifyDataSetChanged();
+
                 setAnimation(R.anim.layout_right_left);
                 link = getResources().getStringArray(R.array.category_vnexpress);
                 arrLink = new ArrayList<>(Arrays.asList(link));
                 break;
             case 1:
+                mdata.clear();
+                mdata.add(new Category("Tin xem nhiều",R.drawable.xemnhieu_tn));
+                mdata.add(new Category("Tin nổi bật",R.drawable.noibat_tn));
+                mdata.add(new Category("Kinh doanh",R.drawable.kinhdoanh_tn));
+                mdata.add(new Category("Thời sự",R.drawable.thoisu_tn));
+                mdata.add(new Category("Giải trí",R.drawable.giaitri_tn));
+                mdata.add(new Category("Pháp luật",R.drawable.phapluat_tn));
+                mdata.add(new Category("Sức khỏe",R.drawable.suckhoe_tn));
+                mdata.add(new Category("Khoa học",R.drawable.khoahoc_tn));
+                mdata.add(new Category("Du lịch",R.drawable.dulich_tn));
+                mdata.add(new Category("Thế giới",R.drawable.thegioi_tn));
+                mdata.add(new Category("Startup",R.drawable.startup_tn));
+                mdata.add(new Category("Giáo dục",R.drawable.giaoduc_tn));
+                mdata.add(new Category("Đời sống",R.drawable.doisong_tn));
+                mdata.add(new Category("Số hóa",R.drawable.sohoa_tn));
+                cateAdapter.notifyDataSetChanged();
+
                 setAnimation(R.anim.layout_right_left);
                 link = getResources().getStringArray(R.array.category_thanhnien);
                 arrLink = new ArrayList<>(Arrays.asList(link));
@@ -154,6 +192,18 @@ public class MainWindow extends AppCompatActivity implements AdapterArticle.List
     private void setAnimation(int anim){
         LayoutAnimationController layoutAnimationController = AnimationUtils.loadLayoutAnimation(this, anim);
         cateRecycle.setLayoutAnimation(layoutAnimationController);
+    }
+    private void showToast(String text){
+        Toast toast = new Toast(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.layout_custom_toast));
+        TextView txtMess = view.findViewById(R.id.txtView);
+        txtMess.setText("Đã chọn "+text);
+        toast.setView(view);
+
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.show();
     }
 
 }
