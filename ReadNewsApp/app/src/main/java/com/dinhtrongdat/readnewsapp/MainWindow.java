@@ -41,6 +41,8 @@ public class MainWindow extends AppCompatActivity implements AdapterArticle.List
 
         articleRecycle = findViewById(R.id.my_recycler);
         cateRecycle = findViewById(R.id.rv_category);
+        appBarLayout = findViewById(R.id.AppBar);
+        collapsingToolbarLayout = findViewById(R.id.CollabToolbar);
         initUI();
     }
 
@@ -85,44 +87,8 @@ public class MainWindow extends AppCompatActivity implements AdapterArticle.List
         cateAdapter = new CategoryAdapter(mdata, this);
         cateRecycle.setAdapter(cateAdapter);
 
-        /*
-        * Expanded ToolBar when scroll*/
-        appBarLayout = findViewById(R.id.AppBar);
-        collapsingToolbarLayout = findViewById(R.id.CollabToolbar);
-//        toolbar = findViewById(R.id.toolbar);
-//        initToolBar();
-//        initToolBarAnimation();
     }
-//    private void initToolBar(){
-//        setSupportActionBar(toolbar);
-//        if(getSupportActionBar()!=null){
-//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        }
-//    }
-//    private void initToolBarAnimation(){
-//        collapsingToolbarLayout.setTitle(getString(R.string.app_name));
-//
-//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.vnexpresss);
-//        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
-//            @Override
-//            public void onGenerated(Palette palette) {
-//                int myColor = palette.getVibrantColor(getResources().getColor(R.color.white));
-//                collapsingToolbarLayout.setContentScrimColor(myColor);
-//                collapsingToolbarLayout.setStatusBarScrimColor(getResources().getColor(R.color.black_trans));
-//            }
-//        });
-//        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-//            @Override
-//            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-//                if(Math.abs(verticalOffset) > 200){
-//                    isExpanded = false;
-//                }else{
-//                    isExpanded = true;
-//                }
-//                invalidateOptionsMenu();
-//            }
-//        });
-//    }
+
 
     @Override
     public void onArticleListClick(int clickedItemIndex) {

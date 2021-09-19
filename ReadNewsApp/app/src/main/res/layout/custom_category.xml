@@ -39,6 +39,4 @@
         android:text="txt_cate"
         app:layout_constraintStart_toEndOf="@+id/img_cate"
         app:layout_constraintTop_toTopOf="@+id/img_cateBack" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
