@@ -36,7 +36,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.catevi
         Glide.with(holder.itemView.getContext()).load(mdata.get(position).getDrawableResource())
                 .transforms(new CenterCrop(), new RoundedCorners(16)).into(holder.imgCate);
         holder.txtCate.setText(categoryHelper.getTitle());
-        
+
     }
 
     @Override

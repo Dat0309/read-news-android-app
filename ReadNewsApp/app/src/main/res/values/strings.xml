@@ -3,4 +3,20 @@
     <string name="title">ĐỌC BÁO</string>
     <string name="description">Đọc báo mỗi ngày, tốt cho sức khỏe.</string>
     <string name="all_news">Tất cả đầu báo</string>
+    <string-array name="category_vnexpress">
+        <item>https://vnexpress.net/rss/tin-xem-nhieu.rss</item>
+        <item>https://vnexpress.net/rss/tin-noi-bat.rss</item>
+        <item>https://vnexpress.net/rss/kinh-doanh.rss</item>
+        <item>https://vnexpress.net/rss/thoi-su.rss</item>
+        <item>https://vnexpress.net/rss/giai-tri.rss</item>
+        <item>https://vnexpress.net/rss/phap-luat.rss</item>
+        <item>https://vnexpress.net/rss/suc-khoe.rss</item>
+        <item>https://vnexpress.net/rss/khoa-hoc.rss</item>
+        <item>https://vnexpress.net/rss/du-lich.rss</item>
+        <item>https://vnexpress.net/rss/the-gioi.rss</item>
+        <item>https://vnexpress.net/rss/startup.rss</item>
+        <item>https://vnexpress.net/rss/giao-duc.rss</item>
+        <item>https://vnexpress.net/rss/gia-dinh.rss</item>
+        <item>https://vnexpress.net/rss/so-hoa.rss</item>
+    </string-array>
 </resources>
