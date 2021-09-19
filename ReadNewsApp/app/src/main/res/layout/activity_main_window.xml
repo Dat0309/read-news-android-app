@@ -72,15 +72,18 @@
         </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/layout_bg"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_category"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
     </androidx.core.widget.NestedScrollView>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

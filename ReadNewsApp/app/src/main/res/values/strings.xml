@@ -19,4 +19,20 @@
         <item>https://vnexpress.net/rss/gia-dinh.rss</item>
         <item>https://vnexpress.net/rss/so-hoa.rss</item>
     </string-array>
+    <string-array name="category_thanhnien">
+        <item>https://thanhnien.vn/rss/home.rss</item>
+        <item>https://thanhnien.vn/rss/home.rss</item>
+        <item>https://thanhnien.vn/rss/tai-chinh-kinh-doanh.rss</item>
+        <item>https://thanhnien.vn/rss/thoi-su.rss</item>
+        <item>https://thanhnien.vn/rss/giai-tri.rss</item>
+        <item>https://thanhnien.vn/rss/ban-can-biet.rss</item>
+        <item>https://thanhnien.vn/rss/suc-khoe.rss</item>
+        <item>https://thanhnien.vn/rss/cong-nghe.rss</item>
+        <item>https://thanhnien.vn/rss/du-lich.rss</item>
+        <item>https://thanhnien.vn/rss/the-gioi.rss</item>
+        <item>https://thanhnien.vn/rss/cong-nghe/y-tuong.rss</item>
+        <item>https://thanhnien.vn/rss/giao-duc.rss</item>
+        <item>https://thanhnien.vn/rss/doi-song.rss</item>
+        <item>https://thanhnien.vn/rss/cong-nghe/chuyen-doi-so.rss</item>
+    </string-array>
 </resources>

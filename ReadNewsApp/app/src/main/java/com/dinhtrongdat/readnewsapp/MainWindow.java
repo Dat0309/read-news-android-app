@@ -19,7 +19,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +53,7 @@ public class MainWindow extends AppCompatActivity implements AdapterArticle.List
     private List<Category> mdata;
     private AppBarLayout appBarLayout;
     private CollapsingToolbarLayout collapsingToolbarLayout;
-    public static ArrayList<String> arrLink;
+    public ArrayList<String> arrLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,15 +64,16 @@ public class MainWindow extends AppCompatActivity implements AdapterArticle.List
         cateRecycle = findViewById(R.id.rv_category);
         appBarLayout = findViewById(R.id.AppBar);
         collapsingToolbarLayout = findViewById(R.id.CollabToolbar);
+
         String[] link = getResources().getStringArray(R.array.category_vnexpress);
         arrLink = new ArrayList<>(Arrays.asList(link));
+
         initUI();
     }
 
     private void initUI() {
         GradientDrawable gradient2 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffd4cbe5, 0xffd4cbe5});
         GradientDrawable gradient1 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xff7adccf, 0xff7adccf});
-        GradientDrawable gradient3 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xfff7c59f, 0xFFf7c59f});
 
         articleRecycle.setHasFixedSize(true);
         articleRecycle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
@@ -77,7 +81,6 @@ public class MainWindow extends AppCompatActivity implements AdapterArticle.List
         ArrayList<Article> articleLocation = new ArrayList<>();
         articleLocation.add(new Article(R.drawable.vnexpresss, gradient1));
         articleLocation.add(new Article(R.drawable.thanhnien, gradient2));
-        articleLocation.add(new Article(R.drawable.tuoitre, gradient3));
 
         adapter = new AdapterArticle(articleLocation, this);
         adapter.notifyDataSetChanged();
@@ -112,7 +115,24 @@ public class MainWindow extends AppCompatActivity implements AdapterArticle.List
 
     @Override
     public void onArticleListClick(int clickedItemIndex) {
+        String[] link;
+        switch (clickedItemIndex){
+            case 0:
+                setAnimation(R.anim.layout_right_left);
+                link = getResources().getStringArray(R.array.category_vnexpress);
+                arrLink = new ArrayList<>(Arrays.asList(link));
+                break;
+            case 1:
+                setAnimation(R.anim.layout_right_left);
+                link = getResources().getStringArray(R.array.category_thanhnien);
+                arrLink = new ArrayList<>(Arrays.asList(link));
+                break;
 
+            default:
+                link = getResources().getStringArray(R.array.category_vnexpress);
+                arrLink = new ArrayList<>(Arrays.asList(link));
+                break;
+        }
     }
 
     @Override
@@ -130,6 +150,10 @@ public class MainWindow extends AppCompatActivity implements AdapterArticle.List
         ActivityOptionsCompat option = ActivityOptionsCompat.makeSceneTransitionAnimation(this,p1,p2,p3);
 
         startActivity(intent,option.toBundle());
+    }
+    private void setAnimation(int anim){
+        LayoutAnimationController layoutAnimationController = AnimationUtils.loadLayoutAnimation(this, anim);
+        cateRecycle.setLayoutAnimation(layoutAnimationController);
     }
 
 }

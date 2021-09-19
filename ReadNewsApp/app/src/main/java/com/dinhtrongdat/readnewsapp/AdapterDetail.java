@@ -33,8 +33,12 @@ public class AdapterDetail extends RecyclerView.Adapter<AdapterDetail.detailView
     @Override
     public void onBindViewHolder(AdapterDetail.detailViewHolder holder, int position) {
         Detail detailHelper = mdata.get(position);
-        Picasso.get().load(detailHelper.image).into(holder.image);
-        holder.title.setText(detailHelper.getTitle());
+        try {
+            Picasso.get().load(detailHelper.image).into(holder.image);
+            holder.title.setText(detailHelper.getTitle());
+        }catch (Exception e){
+
+        }
     }
 
     @Override

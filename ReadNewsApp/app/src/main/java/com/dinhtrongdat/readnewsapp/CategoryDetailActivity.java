@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -59,7 +60,7 @@ public class CategoryDetailActivity extends AppCompatActivity implements Adapter
         detailAdapter.notifyDataSetChanged();
         detailRecycle.setLayoutManager(new LinearLayoutManager(CategoryDetailActivity.this));
         detailRecycle.setHasFixedSize(true);
-        setAnimation(R.anim.layout_animation_dow_up);
+
 
     }
     public class ReadData extends AsyncTask<String, Integer, String> {
@@ -91,13 +92,16 @@ public class CategoryDetailActivity extends AppCompatActivity implements Adapter
                 mdata.add(new Detail(title,link,image));
             }
             detailRecycle.setAdapter(detailAdapter);
+            setAnimation(R.anim.layout_animation_dow_up);
             super.onPostExecute(s);
         }
     }
 
     @Override
     public void onDetailListClick(int clickedItemIndex) {
-
+            Intent intent = new Intent(CategoryDetailActivity.this, ItemDetailActivity.class);
+            intent.putExtra("link",mdata.get(clickedItemIndex).link);
+            startActivity(intent);
     }
 
 
@@ -126,7 +130,7 @@ public class CategoryDetailActivity extends AppCompatActivity implements Adapter
             while ((line = bufferedReader.readLine()) != null) {
                 content.append(line + "\n");
             }
-            Log.d("content", content.toString());
+//            Log.d("content", content.toString());
             bufferedReader.close();
         } catch (Exception e) {
             e.printStackTrace();
